@@ -6,6 +6,10 @@
 
 	<bean id="studentBean" class="com.bean.StudentBean"></bean>
 
+	<bean id="authorBean" class="com.bean.AuthorBean"></bean>
 
+	<bean id="bookBean" class="com.bean.BookBean">
+		<constructor-arg ref="authorBean"></constructor-arg>
+	</bean>
 
 </beans>

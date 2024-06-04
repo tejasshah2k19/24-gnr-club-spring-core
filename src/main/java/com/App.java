@@ -2,6 +2,8 @@ package com;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.bean.AuthorBean;
+import com.bean.BookBean;
 import com.bean.StudentBean;
 
 /**
@@ -20,11 +22,27 @@ public class App {
 		// ioc container ->
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		System.out.println(context);
-		StudentBean s1 = context.getBean("studentBean",StudentBean.class);
-		StudentBean s2 = context.getBean("studentBean",StudentBean.class);
-	
+		StudentBean s1 = context.getBean("studentBean", StudentBean.class);
+		StudentBean s2 = context.getBean("studentBean", StudentBean.class);
+
 		System.out.println(s1);
 		System.out.println(s2);
+
+		// DI
+			// CI -> constructor injection 
+
+//		AuthorBean author  = new AuthorBean();
+//		BookBean book1  = new BookBean(author);
+//		//constructor 
+//		BookBean book2 = new BookBean(author);
+//		
+//		System.out.println(book1);
+//		System.out.println(book2);
+
+		BookBean book1 = context.getBean("bookBean", BookBean.class);
+		BookBean book2 = context.getBean("bookBean", BookBean.class);
+		System.out.println(book1);
+		System.out.println(book2);
 	}
 }
 
